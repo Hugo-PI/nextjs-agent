@@ -1,5 +1,4 @@
 'use client';
-import type { Metadata } from "next";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { UISettingsProvider } from "@/contexts/UISettingsContext";
 import { ThreadProvider } from "@/contexts/ThreadContext";
@@ -13,15 +12,14 @@ const queryClient = new QueryClient({
   }
 });
 
-export const metadata: Metadata = {
-  title: "NextJS Agent RAG",
-  description: "A Agent RAG application using NextJS, React, TailwindCSS, LangGraph",
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
+      <head>
+        <title>NextJS Agent RAG</title>
+        <meta property="description" content="A Agent RAG application using NextJS, React, TailwindCSS, LangGraph"/>
+      </head>
       <body>
         {/* QueryClient Context */}
         <QueryClientProvider client={queryClient}>
